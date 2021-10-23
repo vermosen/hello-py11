@@ -18,14 +18,14 @@ from setuptools import find_packages
 
 
 setup(
-    name="scikit_build_example",
+    name="habu",
     version="0.0.1",
     description="a minimal example package (with pybind11)",
-    author="Henry Schreiner",
+    author="Jean-Mathieu Vermosen",
     license="MIT",
-    packages=find_packages(where = 'src'),
-    package_dir={"": "src"},
-    cmake_install_dir="src/scikit_build_example",
+    packages=find_packages(where = 'python'),
+    package_dir={"": "python"},
+    cmake_install_dir="python/habu",
     include_package_data = True,
     extras_require={"test": ["pytest"]},
 )
