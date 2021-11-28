@@ -14,7 +14,7 @@
           "environment": [
             {
               "name": "PYTHONPATH",
-              "value": "${workspaceFolder}/_skbuild/cmake-install/python"
+              "value": "${workspaceFolder}/_skbuild/linux-x86_64-3.8/cmake-install/python"
             }
           ],
           "externalConsole": false,

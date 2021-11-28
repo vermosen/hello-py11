@@ -10,7 +10,8 @@
               "args": [
                   "setup.py",
                   "--cmake-executable=/opt/gcc93/bin/cmake",
-                  "install"
+                  "--build-type=Debug",
+                  "build"
                 ],
       "problemMatcher": [],
       "group": {
