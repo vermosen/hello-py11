@@ -2,8 +2,7 @@
 import unittest
 
 import habu as m
-
-class basic_test(unittest.TestCase):
+class test_basic(unittest.TestCase):
 
     def test_version(self):
         self.assertEqual(m.__version__, "0.0.1")

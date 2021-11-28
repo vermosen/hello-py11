@@ -6,7 +6,12 @@
     {
       "label": "pip",
       "type": "shell",
-      "command": "/opt/miniconda/envs/py38/bin/pip install -e .",
+      "command": "/opt/miniconda/envs/py38/bin/python",
+              "args": [
+                  "setup.py",
+                  "--cmake-executable=/opt/gcc93/bin/cmake",
+                  "install"
+                ],
       "problemMatcher": [],
       "group": {
         "kind": "build",

@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "(gdb) py-test",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "/opt/miniconda/envs/py38/bin/python",
+          "args": [ 
+              "-m", "unittest", "test_numpy"
+          ],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}/tests",
+          "environment": [
+            {
+              "name": "PYTHONPATH",
+              "value": "${workspaceFolder}/_skbuild/cmake-install/python"
+            }
+          ],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "miDebuggerPath": "/opt/gcc84/bin/gdb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ]
+      }
+  ]
+}

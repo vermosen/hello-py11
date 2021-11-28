@@ -2,6 +2,8 @@
 
 #include<habu/add.h>
 
+#include "adapters/date.h"
+
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
@@ -32,6 +34,10 @@ PYBIND11_MODULE(_core, m) {
 
         Some other explanation about the subtract function.
     )pbdoc");
+
+    m.def("date_atom", [](const habu::date& dt) {
+        return dt.counter();
+    });
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);

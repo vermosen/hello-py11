@@ -1,4 +1,2 @@
 
-
-
-add_library(habu_cpp habu/add.h habu/add.cpp)
+add_library(habucpp STATIC habu/add.h habu/add.cpp habu/date.cpp)

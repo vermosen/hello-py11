@@ -20,12 +20,13 @@ from setuptools import find_packages
 setup(
     name="habu",
     version="0.0.1",
-    description="a minimal example package (with pybind11)",
+    description="a minimal example package (with pybind11) to test numpy bindings",
     author="Jean-Mathieu Vermosen",
     license="MIT",
     packages=find_packages(where = 'python'),
     package_dir={"": "python"},
     cmake_install_dir="python/habu",
+    cmake_args=[],
     include_package_data = True,
     extras_require={"test": ["pytest"]},
 )
