@@ -4,14 +4,18 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/python"
-
+                "${workspaceFolder}/python",
+                "/home/vermosen/git/pybind11/include",
+                "/opt/miniconda/envs/py38/include",
+                "/opt/miniconda/envs/py38/include/python3.8",
+                "/home/vermosen/git/numpy/numpy/core/include"
             ],
             "defines": [],
             "compilerPath": "/opt/gcc93/bin/gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++14",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

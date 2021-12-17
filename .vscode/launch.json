@@ -7,7 +7,7 @@
           "request": "launch",
           "program": "/opt/miniconda/envs/py38/bin/python",
           "args": [ 
-              "-m", "unittest", "test_numpy"
+              "-m", "unittest", "test_numpy.test_numpy.test_ints_to_dates"
           ],
           "stopAtEntry": false,
           "cwd": "${workspaceFolder}/tests",

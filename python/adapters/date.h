@@ -4,6 +4,7 @@
 
 #include <habu/date.h>
 #include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
 
 namespace pybind11 {
 namespace detail {
@@ -19,29 +20,39 @@ namespace detail {
       // python -> C++
       bool load(handle src, bool) {
 
-          using namespace habu;
+        using namespace habu;
 
-          if (!src) return false;
+        if (!src) return false;
 
-          if (strcmp(src.ptr()->ob_type->tp_name, "numpy.datetime64") == 0) {
-              static PyObject* astype_ptr  = module::import("numpy").attr("datetime64").attr("astype").cast<object>().release().ptr();
-              static PyObject* dt_type_ptr = module::import("numpy").attr("int64").cast<object>().release().ptr();
+        // check that the object is indeed a numpy.datetime64
+        if (strcmp(src.ptr()->ob_type->tp_name, "numpy.datetime64") == 0) {
 
-              object astype  = reinterpret_borrow<object>(astype_ptr);
-              object dt_type = reinterpret_borrow<object>(dt_type_ptr);
-              src = astype(src, dt_type);
+          // check that we have the right numpy type
+          if (src.attr("dtype").attr("str").cast<std::string>() == "<M8[D]") {
+            static auto np = module::import("numpy");
+            auto cast_f = np.attr("int64");
+            auto raw = src.attr("astype")(cast_f).cast<std::int64_t>();            
+            value = habu::date(raw);
+            return true;
           }
-
-          value = 0;
-          return true;
+        }
+      
+        return false;
       }
 
       // C++ -> python
       static handle cast(const habu::date &src, return_value_policy /* policy */, handle /* parent */) {
           
+          // see https://github.com/pybind/pybind11/issues/1288
           using namespace habu;
 
-          return nullptr;
+          static auto np = module::import("numpy");
+          auto raw_f = np.attr("int64");
+          auto raw = raw_f(src.counter());
+          auto retval = raw.attr("astype")("datetime64[D]");
+          return retval;
+
+          //return PyLong_FromLong(src.counter());
       }
   };
 

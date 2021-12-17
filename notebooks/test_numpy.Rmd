@@ -1,0 +1,25 @@
+---
+title: "randomforest-iris"
+author: "jean-mathieu vermosen"
+date: "3/14/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# step 1: some study over B-splines
+
+```{r}
+library(reticulate)
+use_condaenv(condaenv = 'py38', conda = '/opt/miniconda/bin/conda', required = FALSE)
+```
+
+# simple date manipulation
+
+```{python}
+
+import numpy as np
+
+dt = np.datetime64('2021-10-10')
+```
+
