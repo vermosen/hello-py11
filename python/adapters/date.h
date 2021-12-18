@@ -49,10 +49,9 @@ namespace detail {
           static auto np = module::import("numpy");
           auto raw_f = np.attr("int64");
           auto raw = raw_f(src.counter());
-          auto retval = raw.attr("astype")("datetime64[D]");
-          return retval;
-
-          //return PyLong_FromLong(src.counter());
+          auto h = raw.attr("astype")("datetime64[D]");
+          h.inc_ref();
+          return h;
       }
   };
 

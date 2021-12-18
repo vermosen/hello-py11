@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
       {
-          "name": "(gdb) py-test",
+           "name": "(gdb) py-test",
           "type": "cppdbg",
           "request": "launch",
           "program": "/opt/miniconda/envs/py38/bin/python",

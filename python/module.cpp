@@ -46,7 +46,19 @@ PYBIND11_MODULE(_core, m) {
             rv.push_back(habu::date(i));
         }
         return rv;
-    }, py::return_value_policy::move);
+    });
+
+    m.def("int_to_date_uni", [](int ctr) -> habu::date {
+        return habu::date(ctr);
+    });
+
+    m.def("int_to_date_uni", [](const std::vector<int>& ctrs) -> std::vector<habu::date> {
+        std::vector<habu::date> rv;
+        for (auto& i : ctrs) {
+            rv.push_back(habu::date(i));
+        }
+        return rv;
+    });
 
     //m.def("numpy")
 

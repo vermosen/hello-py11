@@ -60,7 +60,8 @@ namespace detail {
             ptr[i] = src[i].counter();
           }
 
-          handle h = rv.attr("astype")("datetime64[D]");
+          object h = rv.attr("astype")("datetime64[D]");
+          h.inc_ref();
           return h;
       }
   };
